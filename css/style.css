@@ -1,0 +1,318 @@
+body {
+  background-color: transparent;
+  color: #172b4d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Noto Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+/* Support pour le mode sombre de Trello */
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #b6c2cf;
+  }
+}
+
+#content {
+  padding: 8px;
+}
+
+/* Stats Badges */
+.stats-container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: rgba(9, 30, 66, 0.04);
+  border-radius: 8px;
+  padding: 10px 16px;
+  flex: 1;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .stat-card {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.stat-value {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #5e6c84;
+  font-weight: 700;
+}
+
+@media (prefers-color-scheme: dark) {
+  .stat-label {
+    color: #9fadbc;
+  }
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 10px;
+}
+
+th {
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #5e6c84;
+  padding: 8px 12px;
+  border-bottom: 2px solid rgba(9, 30, 66, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  th {
+    color: #9fadbc;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+td {
+  padding: 12px;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(9, 30, 66, 0.04);
+}
+
+@media (prefers-color-scheme: dark) {
+  td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+.sp-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.sp-badge.set { background: rgba(0, 121, 191, 0.1); color: #0079bf; }
+.sp-badge.decrement { background: rgba(235, 90, 70, 0.1); color: #eb5a46; }
+
+@media (prefers-color-scheme: dark) {
+  .sp-badge.set { background: rgba(87, 157, 255, 0.2); color: #579dff; }
+  .sp-badge.decrement { background: rgba(255, 108, 91, 0.2); color: #ff6c5b; }
+}
+
+/* Popup Form */
+#initial-setup, #decrement-points {
+  padding: 4px;
+}
+
+label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #44546f;
+  margin-bottom: 4px;
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  label { color: #b6c2cf; }
+}
+
+select, input, textarea {
+  background-color: #ffffff !important;
+  border: 1px solid #dfe1e6 !important;
+  border-radius: 3px;
+  padding: 8px 12px !important;
+  color: #172b4d !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  select, input, textarea {
+    background-color: #22272b !important;
+    border: 1px solid #454f59 !important;
+    color: #b6c2cf !important;
+  }
+}
+
+/* Grid for Fibonacci buttons */
+.fibonacci-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.fib-button {
+  background: rgba(9, 30, 66, 0.04);
+  border: 1px solid rgba(9, 30, 66, 0.08);
+  border-radius: 6px;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #172b4d;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  text-align: center;
+}
+
+.fib-button:hover {
+  background: rgba(9, 30, 66, 0.08);
+  border-color: #0079bf;
+  color: #0079bf;
+}
+
+@media (prefers-color-scheme: dark) {
+  .fib-button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #b6c2cf;
+  }
+  .fib-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #579dff;
+    color: #579dff;
+  }
+}
+
+.popup-section-title {
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #44546f;
+}
+
+@media (prefers-color-scheme: dark) {
+  .popup-section-title { color: #b6c2cf; }
+}
+
+/* Progress Bar in Popup */
+.progress-container {
+  background: rgba(9, 30, 66, 0.08);
+  border-radius: 4px;
+  height: 8px;
+  width: 100%;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: #0079bf;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  .progress-container { background: rgba(255, 255, 255, 0.1); }
+  .progress-bar { background: #579dff; }
+}
+
+/* Quick Action Buttons */
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.btn-quick {
+  background: rgba(9, 30, 66, 0.04);
+  border: 1px solid rgba(9, 30, 66, 0.08);
+  border-radius: 4px;
+  padding: 6px 0;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #172b4d;
+}
+
+.btn-quick:hover {
+  background: #eb5a46;
+  color: white;
+  border-color: #eb5a46;
+}
+
+.btn-quick.plus:hover {
+  background: #1f845a;
+  color: white;
+  border-color: #1f845a;
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn-quick {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #b6c2cf;
+  }
+  .btn-quick:hover {
+    background: #ff6c5b;
+    color: #1d2125;
+    border-color: #ff6c5b;
+  }
+  .btn-quick.plus:hover {
+    background: #4bce97;
+    color: #1d2125;
+    border-color: #4bce97;
+  }
+}
+
+.btn-secondary {
+  background: transparent !important;
+  border: 1px solid rgba(9, 30, 66, 0.08) !important;
+  color: #44546f !important;
+  font-size: 11px !important;
+  margin-top: 8px !important;
+  padding: 8px !important;
+  width: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn-secondary {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: #b6c2cf !important;
+  }
+}
+
+.sp-badge.increment { background: rgba(31, 132, 90, 0.1); color: #1f845a; }
+.sp-badge.update-initial { background: rgba(9, 30, 66, 0.04); color: #44546f; }
+
+@media (prefers-color-scheme: dark) {
+  .sp-badge.increment { background: rgba(75, 206, 151, 0.2); color: #4bce97; }
+  .sp-badge.update-initial { background: rgba(255, 255, 255, 0.1); color: #b6c2cf; }
+}
+
+/* Form refinement */
+#decrement-points label {
+  margin-top: 16px;
+}
+
+.action-buttons button {
+  width: 100%;
+  padding: 10px !important;
+  font-weight: 600;
+}
+
+#reset-points {
+  background: transparent !important;
+  color: #ae2e24 !important;
+  border: none !important;
+  font-size: 11px !important;
+  text-decoration: underline;
+  margin-top: 24px !important;
+  opacity: 0.7;
+}
+
+#reset-points:hover {
+  opacity: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  #reset-points { color: #f87168 !important; }
+}

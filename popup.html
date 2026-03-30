@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://p.trellocdn.com/power-up.css">
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <div id="content">
+      <!-- Section Initialisation / Modification -->
+      <div id="initial-setup" style="display: none;">
+        <span id="setup-title" class="popup-section-title">Estimation initiale (Fibonacci) :</span>
+        <div class="fibonacci-grid">
+          <button class="fib-button" data-value="1">1</button>
+          <button class="fib-button" data-value="2">2</button>
+          <button class="fib-button" data-value="3">3</button>
+          <button class="fib-button" data-value="5">5</button>
+          <button class="fib-button" data-value="8">8</button>
+          <button class="fib-button" data-value="13">13</button>
+          <button class="fib-button" data-value="21">21</button>
+          <button class="fib-button" data-value="34">34</button>
+        </div>
+        <button id="cancel-setup" class="btn-secondary" style="display: none; margin-top: 20px;">Annuler</button>
+      </div>
+
+      <!-- Section Gestion -->
+      <div id="decrement-points" style="display: none;">
+        <div style="text-align: center; margin-bottom: 20px;">
+          <div style="font-weight: 600; font-size: 16px; margin-bottom: 4px;">
+            <span id="current-display">-</span> / <span id="initial-display">-</span> SP
+          </div>
+          <div class="progress-container">
+            <div id="progress-bar" class="progress-bar" style="width: 0%;"></div>
+          </div>
+          <button id="edit-initial" class="btn-secondary" style="width: auto; padding: 4px 12px !important; margin-top: 12px;">Modifier l'initial</button>
+        </div>
+
+        <label>Ajustement rapide :</label>
+        <div class="quick-actions">
+          <button class="btn-quick" data-val="-1">-1</button>
+          <button class="btn-quick" data-val="-2">-2</button>
+          <button class="btn-quick plus" data-val="1">+1</button>
+          <button class="btn-quick plus" data-val="2">+2</button>
+        </div>
+        
+        <label for="consume-points">Nombre de SP à ajuster :</label>
+        <input type="number" id="consume-points" placeholder="Ex: 1 ou -1" step="0.5">
+        
+        <label for="consume-note">Note (optionnel) :</label>
+        <textarea id="consume-note" placeholder="Commentaire..." rows="1"></textarea>
+        
+        <div class="action-buttons">
+          <button id="submit-decrement" class="mod-primary">Appliquer l'ajustement</button>
+          <button id="reset-points">Réinitialiser toute la carte</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    <script src="./js/popup.js"></script>
+  </body>
+</html>
