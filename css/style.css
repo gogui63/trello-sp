@@ -102,11 +102,11 @@ td {
 }
 
 .sp-badge.set { background: rgba(0, 121, 191, 0.1); color: #0079bf; }
-.sp-badge.decrement { background: rgba(235, 90, 70, 0.1); color: #eb5a46; }
+.sp-badge.decrement { background: rgba(235, 90, 70, 0.1); color: #1f845a; }
 
 @media (prefers-color-scheme: dark) {
   .sp-badge.set { background: rgba(87, 157, 255, 0.2); color: #579dff; }
-  .sp-badge.decrement { background: rgba(255, 108, 91, 0.2); color: #ff6c5b; }
+  .sp-badge.decrement { background: rgba(255, 108, 91, 0.2); color: #4bce97; }
 }
 
 /* Popup Form */
@@ -280,11 +280,11 @@ select, input, textarea {
   }
 }
 
-.sp-badge.increment { background: rgba(31, 132, 90, 0.1); color: #1f845a; }
+.sp-badge.increment { background: rgba(31, 132, 90, 0.1); color: #eb5a46; }
 .sp-badge.update-initial { background: rgba(9, 30, 66, 0.04); color: #44546f; }
 
 @media (prefers-color-scheme: dark) {
-  .sp-badge.increment { background: rgba(75, 206, 151, 0.2); color: #4bce97; }
+  .sp-badge.increment { background: rgba(75, 206, 151, 0.2); color: #ff6c5b; }
   .sp-badge.update-initial { background: rgba(255, 255, 255, 0.1); color: #b6c2cf; }
 }
 
