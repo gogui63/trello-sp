@@ -39,7 +39,12 @@ t.render(function() {
       dateCell.textContent = dateObj.toLocaleDateString() + ' ' + dateObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       dateCell.style.color = '#5e6c84';
       dateCell.style.fontSize = '12px';
-      
+
+      var authorCell = document.createElement('td');
+      authorCell.textContent = entry.author || '-';
+      authorCell.style.color = '#5e6c84';
+      authorCell.style.fontSize = '12px';
+
       var actionCell = document.createElement('td');
       var actionBadge = document.createElement('span');
       actionBadge.className = 'sp-badge ' + (entry.type || 'decrement');
@@ -66,6 +71,7 @@ t.render(function() {
       remainingCell.style.fontWeight = '600';
       
       row.appendChild(dateCell);
+      row.appendChild(authorCell);
       row.appendChild(actionCell);
       row.appendChild(noteCell);
       row.appendChild(remainingCell);

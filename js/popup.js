@@ -32,25 +32,29 @@ t.render(function() {
 function performAdjustment(delta, note) {
   if (isNaN(delta) || delta === 0) return Promise.resolve();
 
-  return t.get('card', 'shared', 'spData')
-  .then(function(spData) {
-    if (!spData) return;
+  return t.member('fullName')
+  .then(function(member) {
+    return t.get('card', 'shared', 'spData')
+    .then(function(spData) {
+      if (!spData) return;
 
-    var newCurrent = Math.max(0, spData.current + delta);
-    newCurrent = Math.round(newCurrent * 10) / 10;
-    
-    var type = delta > 0 ? 'increment' : 'decrement';
-    
-    spData.current = newCurrent;
-    spData.history.push({
-      date: new Date().toISOString(),
-      change: delta,
-      remaining: newCurrent,
-      type: type,
-      note: note || (type === 'increment' ? 'Points ajoutés' : 'Points consommés')
+      var newCurrent = Math.max(0, spData.current + delta);
+      newCurrent = Math.round(newCurrent * 10) / 10;
+
+      var type = delta > 0 ? 'increment' : 'decrement';
+
+      spData.current = newCurrent;
+      spData.history.push({
+        date: new Date().toISOString(),
+        change: delta,
+        remaining: newCurrent,
+        type: type,
+        note: note || (type === 'increment' ? 'Points ajoutés' : 'Points consommés'),
+        author: member.fullName
+      });
+
+      return t.set('card', 'shared', 'spData', spData);
     });
-
-    return t.set('card', 'shared', 'spData', spData);
   })
   .then(function() {
     t.closePopup();
@@ -61,35 +65,40 @@ function performAdjustment(delta, note) {
 document.querySelector('.fibonacci-grid').addEventListener('click', function(event) {
   if (event.target.classList.contains('fib-button')) {
     var newInitial = parseInt(event.target.getAttribute('data-value'), 10);
-    
-    return t.get('card', 'shared', 'spData')
-    .then(function(spData) {
-      if (!spData) {
-        // Initial set
-        spData = {
-          initial: newInitial,
-          current: newInitial,
-          history: [{
+
+    return t.member('fullName')
+    .then(function(member) {
+      return t.get('card', 'shared', 'spData')
+      .then(function(spData) {
+        if (!spData) {
+          // Initial set
+          spData = {
+            initial: newInitial,
+            current: newInitial,
+            history: [{
+              date: new Date().toISOString(),
+              change: 0,
+              remaining: newInitial,
+              type: 'set',
+              note: 'Estimation initiale définie',
+              author: member.fullName
+            }]
+          };
+        } else {
+          // Update existing initial
+          var oldInitial = spData.initial;
+          spData.initial = newInitial;
+          spData.history.push({
             date: new Date().toISOString(),
-            change: 0,
-            remaining: newInitial,
-            type: 'set',
-            note: 'Estimation initiale définie'
-          }]
-        };
-      } else {
-        // Update existing initial
-        var oldInitial = spData.initial;
-        spData.initial = newInitial;
-        spData.history.push({
-          date: new Date().toISOString(),
-          change: newInitial - oldInitial,
-          remaining: spData.current,
-          type: 'update-initial',
-          note: 'Estimation initiale modifiée (' + oldInitial + ' -> ' + newInitial + ')'
-        });
-      }
-      return t.set('card', 'shared', 'spData', spData);
+            change: newInitial - oldInitial,
+            remaining: spData.current,
+            type: 'update-initial',
+            note: 'Estimation initiale modifiée (' + oldInitial + ' -> ' + newInitial + ')',
+            author: member.fullName
+          });
+        }
+        return t.set('card', 'shared', 'spData', spData);
+      });
     })
     .then(function() {
       t.closePopup();
