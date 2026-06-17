@@ -1,6 +1,6 @@
 /* global TrelloPowerUp */
 
-var ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-02d0-4da2-8827-5f5e88b29983%2Ficon-gray.svg';
+var ICON = './icon.svg';
 
 TrelloPowerUp.initialize({
   'card-badges': function(t, options) {

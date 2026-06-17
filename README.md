@@ -71,7 +71,7 @@ Une fois hébergé (ex: `https://votre-projet.github.io/trello-plugin/`) :
 ### 3. Partage du Power-Up
 Il existe deux manières de partager le Power-Up :
 
-- **Usage Privé (ou Interne)** : 
+- **Usage Privé (ou Interne)** :
   Le Power-Up est immédiatement utilisable par vous et les membres des tableaux sur lesquels il est activé, tant qu'il reste en mode "Custom" (personnalisé).
   
 - **Publication sur le Trello Power-Up Directory (Public)** :
